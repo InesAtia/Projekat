@@ -11,7 +11,7 @@
 
 <div class="container mb-2">
 
-<form>
+<form id="kontaktiranje2">
 	<div class="row">
 		<div class="col-12 text-center p-5">
 		<img src="slike/meal.png" height="100px">
@@ -19,37 +19,31 @@
 
 		</div>
 		<div class="col-6 pb-3">
-				<input type="text" name="ime" placeholder="Ime" class="form-control">
+				<input type="text" name="ime" placeholder="Ime" class="form-control" id="imeKorisnika2" required>
 		</div>
 
 		<div class="col-6 pb-3">
-			<input type="text" name="pitanje" placeholder="Pitanje" class="form-control">
+			<textarea type="text" name="pitanje" placeholder="Pitanje" class="form-control" id="porukaKorisnika2" required></textarea>
 		</div>
 
 		<div class="col-6">
-			<input type="email" name="email" placeholder="E-mail" class="form-control">	
+			<input type="email" name="email" placeholder="E-mail" class="form-control" id="mailKorisnika2" required>	
 		</div>
 
 		<div class="col-6">
-		<button type="submit" class="btn btn-danger">Pošalji upit</button>	
+		<button type="submit" class="btn btn-danger" onclick="return kontaktForma();" id="dugme2">Pošalji upit</button>	
 		</div>
 
 
 	</div>
 </form>
+
+<br>
+<br>
+<br>
+<div class="col-12" id="display2" width="500px" height="70px"></div>
+
+
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <?php include 'footer.php'; ?> 
