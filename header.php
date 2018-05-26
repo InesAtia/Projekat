@@ -12,22 +12,13 @@
   			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-			<link rel="stylesheet" type="text/css" href="style.css">
+
 			<link rel="stylesheet" type="text/css" href="hover.css">
+			<link rel="stylesheet" type="text/css" href="style.css">
+
+			<script type="text/javascript" src="funkcije.js"></script>
+			<script type="text/javascript" src="jqueryFunkcije.js"></script>
 			
-
-			<script>
-
-				$(document).ready(function(){
-				 $(".galerija-slika").mouseenter(function(){
-    			var src = $(this).attr('src');
-    			$(".glavna").attr("src", src);
-
-    		});
-     			 });
-
-
-			</script>
 
 	</head>	
 
@@ -48,11 +39,11 @@
 			    </div>
 
 			    <div class="col-4 text-center">
-			      <img src="slike/logo1.png" class="logo">
+			     <a href="index.php"><img src="slike/logo1.png" class="logo"></a>
 			    </div>
 			    <div class="col-4 text-right navigacija">
 			    <a href="registracija.php">Registracija</a>
-				 <a href="Prijava.php">Prijava</a>
+				<a href="prijava.php">Prijava</a>
 			    
 			    </div>
 			  </div>
@@ -62,4 +53,5 @@
 
 		</header>
 	</div>
+ 
  
