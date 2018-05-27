@@ -3,7 +3,7 @@
 <div class="container mb-2">
 
 
-<form name="korisnikForma" method="post">
+<form name="korisnikForma" action="actionReg.php" method="POST">
 	<div class="row">
 		<div class="col-12 text-center p-5">
 		<img src="slike/meal.png" height="100px">
@@ -147,6 +147,7 @@
 		</div>
 
 		<div class="col-6 pt-5">
+			<button class="btn btn-danger" type="submit">Registruj se</button>
 			<button class="btn btn-danger" onclick="return validacijaForme();">Registrirajte se</button>	
 		</div> 
 

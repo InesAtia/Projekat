@@ -2,7 +2,7 @@
 
 <div class="container mb-2">
 
-<form>
+<form action="actionLogin.php" method="POST">
 	<div class="row">
 		<div class="col-12 text-center p-5">
 			<img src="slike/meal.png" height="100px">
