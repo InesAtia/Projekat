@@ -129,3 +129,20 @@ margin-bottom: 8px;
 
 }
 
+.sivastrana {
+	background: gray;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	color: white;
+	text-align: center;
+
+}
+
+.sivastrana a {
+	color: white;
+	margin-top: 10px;
+	display: block;
+	border-bottom: 1px solid lightgray;
+	padding-bottom: 10px;
+
+}
