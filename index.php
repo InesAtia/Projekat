@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?> 
-
+<?php include 'conection.php'; ?>
 
 <div class="container-fluid">
 	<div class="slider-home">
@@ -17,12 +17,23 @@
 
 	<h1>Ponuda</h1>
 
-	<a href="menu.php"><img src="slike/ponuda/11.jpg"></a>
-	<a href="menu.php"><img src="slike/ponuda/15.jpg"></a>
-	<a href="menu.php"><img src="slike/ponuda/18.jpg"></a>
-	<a href="menu.php"><img src="slike/ponuda/20.jpg"></a>
-	<a href="menu.php"><img src="slike/ponuda/8.jpg"></a>
-	<a href="menu.php"><img src="slike/ponuda/21.jpg"></a>
+	<?php
+$sql = "SELECT * FROM proizvod";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo '<a href="menu.php?id='.$row["id"].'"><img src="slike/ponuda/'.$row["foto"].'"></a>';
+
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+
+
 
 
 

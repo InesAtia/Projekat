@@ -1,4 +1,43 @@
 <?php include 'header_admin.php'; ?> 
+<?php include 'conection.php'; ?>
+
+<?php  
+/**
+<div class="table-responsive-sm">
+  <table class="table">
+
+<?php
+$sql = "SELECT * FROM proizvod";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        
+        echo "<tr>
+<td>".$row["id"]."</td>
+<td>".$row["naziv"]."</td>
+<td>".$row["opis"]."</td>
+<td>".$row["cijena_po_jedinici"]."</td>
+<td>".$row["tip_proizvoda_id"]."</td>
+<td><img width='100px' src='slike/".$row["foto"]."'></td>
+        </tr>";
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?>
+
+
+   
+  </table>
+</div>
+**/
+?>
+
+
+
 
 	<!--<div class="container page">
 		
