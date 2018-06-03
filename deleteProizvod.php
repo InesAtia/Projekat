@@ -13,14 +13,14 @@ if ($conn->connect_error) {
 
 $id = (int)$_GET['id'];
 
-$update = $conn->prepare("DELETE FROM user WHERE id = ?");
+$update = $conn->prepare("DELETE FROM proizvod WHERE id = ?");
 $update->bind_param('i', $id);
 $update->execute();
 $update->close();
 
-echo "Record deleted successfully";
+echo "Proizvod deleted successfully";
 
-echo "<br><br><a href=\"panel.php\">Back</a>";
+echo "<br><br><a href=\"osoblje.php\">Back</a>";
 
 ?> 
 

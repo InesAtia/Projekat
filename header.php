@@ -3,7 +3,6 @@
 <html>
 	<head>
 		<title>Catering Pals</title>
-
 			
  			<meta charset="utf-8">
  			<link href="https://fonts.googleapis.com/css?family=Cormorant+Upright:300,400,500,600,700&amp;subset=latin-ext" rel="stylesheet">

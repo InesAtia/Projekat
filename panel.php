@@ -89,6 +89,13 @@
 			</select><br>";
 		echo "<button type='submit'>Add</button></fieldset></form>";
 
+		/*
+		echo "<form  action='header.php' method='POST'>";
+		echo "<input type='text' name='naslov' value='Irfan'>";
+		echo "<button type='submit'>Postavi</button>";
+		echo "</form>";
+		*/
+
 		$conn->close(); 
 		?>
 
