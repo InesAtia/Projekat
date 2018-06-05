@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
-<html>
+<!--angular aplikacija definisana u html tagu-->
+<html ng-app="myApp">
 	<head>
 		<title>Catering Pals</title>
 
@@ -18,6 +18,10 @@
 
 			<script type="text/javascript" src="funkcije.js"></script>
 			<script type="text/javascript" src="jqueryFunkcije.js"></script>
+
+			<script type="text/javascript" src="angular-1.6.8/angular.js"></script>
+			<script type="text/javascript" src="angular-1.6.8/angular-messages.js"></script>
+			<script type="text/javascript" src="angularFunkcije.js"></script>
 			
 
 	</head>	

@@ -107,7 +107,7 @@ $conn->close();
 
 <div class="container">
 
-<form id="kontaktiranje">
+<form id="kontaktiranje" name="kontaktFormaPocetna">
 	<div class="row">
 		<div class="col-12 text-center p-5">
 		<img src="slike/meal.png" height="100px">
@@ -115,19 +115,23 @@ $conn->close();
 
 		</div>
 		<div class="col-6 pb-3">
-				<input type="text" name="ime" placeholder="Ime" class="form-control" id="imeKorisnika" required>
+				<input type="text" name="ime" placeholder="Ime" ng-model="ImeKorisnika" class="form-control" id="imeKorisnika" ng-required="true">
+				<span ng-show="kontaktFormaPocetna.ime.$dirty && kontaktFormaPocetna.ime.$error.required">Unesite ime</span>
 		</div>
+
 
 		<div class="col-6 pb-3">
-			<textarea type="text" name="pitanje" placeholder="Pitanje" class="form-control" id="porukaKorisnika" required></textarea>
+			<textarea type="text" name="pitanje" placeholder="Pitanje" ng-model="Pitanje" class="form-control" id="porukaKorisnika" ng-required="true"></textarea>
+			<span ng-show="kontaktFormaPocetna.pitanje.$dirty && kontaktFormaPocetna.pitanje.$error.required">Unesite Vašu poruku</span>
 		</div>
 
 		<div class="col-6">
-			<input type="email" name="email" placeholder="E-mail" class="form-control" id="mailKorisnika" required>	
+			<input type="email" name="email" placeholder="E-mail" class="form-control" id="mailKorisnika" ng-model="EmailKorisnika" ng-required="true">	
+			<span ng-show="kontaktFormaPocetna.email.$dirty && kontaktFormaPocetna.email.$error.required">Unesite email</span>
 		</div>
 
 		<div class="col-6">
-		<button class="btn btn-danger" onclick="return kontaktFormaPocetna();" id="dugme">Pošalji upit</button>	
+		<button class="btn btn-danger" ng-disabled="kontaktFormaPocetna.$invalid" onclick="return kontaktiranjePocetna();" id="dugme">Pošalji upit</button>	
 		</div>
 
 
