@@ -1,8 +1,29 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="myApp">
 	<head>
-		<title>Catering Pals</title>
+		<?php
+		//Ovaj dio koda se koristi za ispis TITLE iz baze
+		$servername = "localhost";
+		$username = "root";
+		$password = "root";
+		$dbname = "catering";
+
+		$conn = new mysqli($servername, $username, $password,$dbname);
+
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		} 
+
+		$query = "SELECT title FROM podesavanja";
+		$result = mysqli_query($conn,$query);
+		$count  = mysqli_num_rows($result);
+		$row = mysqli_fetch_row($result);
+		$title = $row[0];
+		
+		?>
+		<title><?php echo $title; $conn->close(); ?></title>
 
 			
  			<meta charset="utf-8">
@@ -18,6 +39,9 @@
 
 			<script type="text/javascript" src="funkcije.js"></script>
 			<script type="text/javascript" src="jqueryFunkcije.js"></script>
+
+			<script type="text/javascript" src="angular-1.6.8/angular.js"></script>
+			<script type="text/javascript" src="angularFunkcije.js"></script>
 			
 
 	</head>	

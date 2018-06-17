@@ -1,15 +1,6 @@
+<?php include 'conection.php'; ?> 
 
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "catering";
-
-$conn = new mysqli($servername, $username, $password,$dbname);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 
 $id = (int)$_GET['id'];
 
@@ -20,7 +11,7 @@ $update->close();
 
 echo "Record deleted successfully";
 
-echo "<br><br><a href=\"panel.php\">Back</a>";
+echo "<br><br><a href=\"admin.php\">Back</a>";
 
 ?> 
 

@@ -15,11 +15,29 @@
 			<link rel="stylesheet" type="text/css" href="style.css">
 			<link rel="stylesheet" type="text/css" href="hover.css">
 			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+			<script type="text/javascript" src="funkcije.js"></script>
+			<script type="text/javascript" src="jqueryFunkcije.js"></script>
+
+			<script type="text/javascript" src="angular-1.6.8/angular.js"></script>
+			<script type="text/javascript" src="angularFunkcije.js"></script>
+			
 	</head>	
  <body> 
 
  
-	<div class="container-fluid p-0">
+	
+
+	<div class="container-fluid p-0 my-0">
+		<div class="row">
+			<div class="col-1 sivastrana">
+				<div onclick="adminPodesavanja();"><i class="fas fa-cogs fa-2x"></i></div><br>
+				<div onclick="adminKorisnici();"><i class="fas fa-users fa-2x"></i></div>
+			</div>
+			
+			<div class="col-11 p-0">
+				
+			<div class="container-fluid p-0">
 		<header>
 			<div class="row">
 			    <div class="col-10">
@@ -28,7 +46,7 @@
 
 			   
 			    <div class="col-2 text-right navigacija">
-			    <a href="admin.php">Odjava</a>
+			    <a href="prijava.php">Odjava</a>
 				
 			    
 			    </div>
@@ -41,13 +59,6 @@
 		</header>
 	</div>
 
-	<div class="container-fluid my-3">
-		<div class="row">
-			<div class="col-1 sivastrana">
-				<a href="#"><i class="fas fa-cogs fa-2x"></i></a>
-				<a href="#"><i class="fas fa-users fa-2x"></i></a>
-			</div>
-			
-			<div class="col-11">
-				
-			
+
+
+	

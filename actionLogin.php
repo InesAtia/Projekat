@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -6,6 +10,11 @@
 	<body>
 
 		<?php
+
+		error_reporting(E_ALL);
+		ini_set('display_errors', 1);
+
+		mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 		
 		$mail = $_POST['email'];
 		$sifra = $_POST['password'];						
@@ -26,21 +35,26 @@
 		echo "Connected successfully<br>";
 
 		$query = "SELECT * FROM user WHERE email='$mail' and password = '$sifra'";
-		$uloga = "SELECT * FROM user WHERE email='$mail' and password = '$sifra' and uloga_id = 1";
 		$result = mysqli_query($conn,$query);
 		$count  = mysqli_num_rows($result);
-		$result1 = mysqli_query($conn,$uloga);
-		$count1  = mysqli_num_rows($result1);
-
-		if($count>0 AND $count1>0){
-			header("Location: panel.php");
+		$row = mysqli_fetch_row($result);
+		
+		if($count>0 AND $row[14]==1){
+			$_SESSION["uloga"] = $row[0];
+			header("Location: admin.php");
 		}
-		elseif ($count>0) {
-		 	echo "You are successfully authenticated!<br><h1>Dobrodosli!</h1>";
-		 } 
+		elseif ($count>0 AND $row[14]==2) {
+			$_SESSION["uloga"] = $row[0];
+		 	header("Location: osoblje.php");
+		 }
+	 	elseif ($count>0 AND $row[14]==3) {
+	 		$_SESSION["uloga"] = $row[0];
+	 		header("Location: korisnik.php");
+	 	}  
 		else {
 			echo "Invalid E-mail or Password!";
 		}
+
 
 		$conn->close();
 		echo "<br><br><a href=\"index.php\">Pocetna</a>";

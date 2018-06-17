@@ -10,8 +10,9 @@
 </div>
 
 <div class="container mb-2">
+	<div ng-controller="kontakt">
 
-<form id="kontaktiranje2">
+<form name="kontaktForma" action="contactForm.php" method="post">
 	<div class="row">
 		<div class="col-12 text-center p-5">
 		<img src="slike/meal.png" height="100px">
@@ -19,29 +20,32 @@
 
 		</div>
 		<div class="col-6 pb-3">
-				<input type="text" name="ime" placeholder="Ime" class="form-control" id="imeKorisnika2" required>
+				<input type="text" name="ime" placeholder="Ime" ng-model="ime" class="form-control" id="imeKorisnika" ng-required="true">
+				<span ng-show="kontaktForma.ime.$dirty && kontaktForma.ime.$error.required">Unesite ime</span>
 		</div>
 
 		<div class="col-6 pb-3">
-			<textarea type="text" name="pitanje" placeholder="Pitanje" class="form-control" id="porukaKorisnika2" required></textarea>
+			<textarea type="text" name="pitanje" ng-model="pitanje" placeholder="Poruka"  class="form-control" id="porukaKorisnika" ng-required="true"></textarea>
+			<span ng-show="kontaktForma.pitanje.$dirty && kontaktForma.pitanje.$error.required">Unesite Vašu poruku</span>
 		</div>
 
 		<div class="col-6">
-			<input type="email" name="email" placeholder="E-mail" class="form-control" id="mailKorisnika2" required>	
+			<input type="email" name="email" ng-model="email" placeholder="E-mail" class="form-control" id="mailKorisnika" ng-required="true">	
+			<span ng-show="kontaktForma.email.$dirty && kontaktForma.email.$error.required">Unesite email</span>	
 		</div>
 
 		<div class="col-6">
-		<button type="submit" class="btn btn-danger" onclick="return kontaktForma();" id="dugme2">Pošalji upit</button>	
+		<button class="btn btn-danger" type="submit" ng-disabled="kontaktForma.$invalid" ng-click="sendMessage();">Pošalji upit</button>	
 		</div>
+
 
 
 	</div>
 </form>
 
-<br>
-<br>
-<br>
-<div class="col-12" id="display2" width="500px" height="70px"></div>
+
+
+</div>
 
 
 </div>

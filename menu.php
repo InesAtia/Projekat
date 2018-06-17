@@ -4,8 +4,9 @@
 
 
 
-	<?php
-$sql = "SELECT * FROM proizvod";
+<?php
+#$sql = "SELECT id, naziv, opis, cijena_po_jedinici, foto FROM menu";
+$sql = "SELECT * FROM menu";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -29,7 +30,7 @@ $proizvod_id = $_GET['id'];
 
 
 <?php
-$sql = "SELECT * FROM proizvod where id=$proizvod_id ";
+$sql = "SELECT * FROM menu where id=$proizvod_id ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -67,12 +68,19 @@ if ($result->num_rows > 0) {
 	</div>
 	</div>
 
+<br>
+<br>
+<div>
+  
+  Kompletnu ponudu proizvoda dostupnih za naručivanje možete vidjeti nakon što se <a href="registracija.php">registrujete</a> ili <a href="prijava.php">prijavite</a> na stranicu
 
+</div>
 
 
 
 
 </div>
+
 
 
 <?php include 'footer.php'; ?> 

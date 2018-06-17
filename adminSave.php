@@ -6,7 +6,6 @@ $sifra = $_POST['korisnikPassword'];
 $ime = $_POST['korisnikIme'];		
 $prezime = $_POST['korisnikPrezime'];
 
-echo $nick;
 
 $servername = "localhost";
 $username = "root";
@@ -27,7 +26,7 @@ else{
 echo "Record update failed!";}
 
 $conn->close();
-echo "<br><br><a href=\"panel.php\">Back</a>";
+echo "<br><br><a href=\"admin.php\">Back</a>";
 
 ?> 
 

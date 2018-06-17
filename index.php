@@ -15,10 +15,11 @@
 
 <div class="container-fluid galerija-home">
 
-	<h1>Ponuda</h1>
+
+	<h1>Izdvojeno iz ponude</h1>
 
 	<?php
-$sql = "SELECT * FROM proizvod";
+$sql = "SELECT * FROM menu";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -34,80 +35,14 @@ $conn->close();
 ?>
 
 
-
-
-
-	
-	<div class="container bg-light forma-home">
-		<div class="row">
-			<!--<div class="col-4 forma-slika">
-
-				</div>
-
-				<div class="col-8 p-4 forma-text">
-
-					<h4 class="pb-3">Rezervacija</h4>
-
-				<form>
-					<div class="row ">
-
-						<div class="col-4">
-							<label>Broj mjesta</label>
-							<input type="text" name="broj_mjesta" class="form-control">	
-						</div>
-
-						<div class="col-4">
-							<label>Povod</label>
-							<input type="text" name="povod" class="form-control">	
-						</div>
-						<div class="col-4">
-							<label>Vrsta kuhinje</label>
-							<input type="text" name="vrsta_kuhinje" class="form-control">	
-						</div>
-						<div class="col-12"> <hr> </div>
-
-						<div class="col-3">
-							<label>Vaše ime</label>
-							<input type="text" name="vase_ime" class="form-control">	
-						</div>
-						<div class="col-3">
-							<label>Telefon</label>
-							<input type="text" name="telefon" class="form-control">	
-						</div>
-						<div class="col-6">
-							<label>E-mail</label>
-							<input type="email" name="email" class="form-control">	
-						</div>
-<div class="col-12"><hr></div>
-						<div class="col-6">
-							<label>Vrijeme rezervacije</label>
-							<input type="text" name="vrijeme_rezervacije" class="form-control">	
-						</div>
-						<div class="col-6">
-							<label>Datum</label>
-							<input type="date" name="datum_rezervacije" class="form-control">	
-						</div>
-						<div class="col-12"> <hr> </div>
-						<div class="col-12 text-right">
-						<button type="submit" class="btn btn-danger">Rezerviši</button>
-						</div>
-
-					</div>
-
-
-
-				</form>
-
-				</div>-->
-
-		</div>
-		
-	</div>
 </div>
 
 <div class="container">
 
-<form id="kontaktiranje">
+	<div ng-controller="kontakt">
+
+
+<form name="kontaktFormaPocetna" action="contactForm.php" method="post">
 	<div class="row">
 		<div class="col-12 text-center p-5">
 		<img src="slike/meal.png" height="100px">
@@ -115,31 +50,32 @@ $conn->close();
 
 		</div>
 		<div class="col-6 pb-3">
-				<input type="text" name="ime" placeholder="Ime" class="form-control" id="imeKorisnika" required>
+				<input type="text" name="ime" placeholder="Ime" ng-model="ime" class="form-control" id="imeKorisnika" ng-required="true">
+				<span ng-show="kontaktFormaPocetna.ime.$dirty && kontaktFormaPocetna.ime.$error.required">Unesite ime</span>
 		</div>
+
 
 		<div class="col-6 pb-3">
-			<textarea type="text" name="pitanje" placeholder="Pitanje" class="form-control" id="porukaKorisnika" required></textarea>
+			<textarea type="text" name="pitanje" ng-model="pitanje" placeholder="Poruka"  class="form-control" id="porukaKorisnika" ng-required="true"></textarea>
+			<span ng-show="kontaktFormaPocetna.pitanje.$dirty && kontaktFormaPocetna.pitanje.$error.required">Unesite Vašu poruku</span>
 		</div>
 
 		<div class="col-6">
-			<input type="email" name="email" placeholder="E-mail" class="form-control" id="mailKorisnika" required>	
+			<input type="email" name="email" ng-model="email" placeholder="E-mail" class="form-control" id="mailKorisnika" ng-required="true">	
+			<span ng-show="kontaktFormaPocetna.email.$dirty && kontaktFormaPocetna.email.$error.required">Unesite email</span>
 		</div>
 
 		<div class="col-6">
-		<button class="btn btn-danger" onclick="return kontaktFormaPocetna();" id="dugme">Pošalji upit</button>	
+		<button class="btn btn-danger" type="submit" ng-disabled="kontaktFormaPocetna.$invalid" ng-click="sendMessage()">Pošalji upit</button>	
 		</div>
 
 
 	</div>
 </form>
-<br>
-<br>
-<br>
-<div class="col-12" id="display" width="500px" height="70px"></div>
 
 </div>
 
+</div>
 
 <div class="container-fluid my-5 p-0">
 	

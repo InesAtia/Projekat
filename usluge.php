@@ -2,7 +2,7 @@
 
 
 <div class="container page-o_nama page">
-
+<!--
 <p><h3>Šta je catering?</h3>
 
 Catering je organizacija i posluživanje hrane i pića prema željama klijenata. Dijeli se na posluživanje u vlastitim poslovnim jedinicama i na lokacijama. Služi se najčešće u dvije varijante:
@@ -28,7 +28,40 @@ Catering Pals ima kompletnu profesionalnu ugostiteljsku opremu (mobilijar) za 30
 
 <p>Naši principi zasnovani su na jednostavnim receptima, a to su prijateljstvo, profesionalnost, dodir inovacije i fleksibilnosti, uz veliku predanost i ljubav prema našem poslu. Naš tim se konstantno usavršava, jer kako naše spoznaje rastu, tako raste i naša mogućnost da ispunimo svaku vašu želju i budemo uvijek vaš prvi i jedini izbor za Catering.Željno iščekujemo da surađujemo sa vama, kontaktirajte nas da dogovorimo vaš slijedeći Catering bez obzira koliko on mali ili veliki bio, tu smo da vam na taj dan pružimo nezaboravno kulinarsko iskustvo.</p>
 
+-->
+<?php
 
+		$servername = "localhost";
+		$username = "root";
+		$password = "root";
+		$dbname = "catering";
+
+		// Create connection
+		$conn = new mysqli($servername, $username, $password,$dbname);
+
+		// Check connection
+		if ($conn->connect_error) {
+		    die("Connection failed: " . $conn->connect_error);
+		} 
+		
+		$sql = "SELECT naslov, opis FROM post";
+		$result = $conn->query($sql);
+
+		if ($result->num_rows > 0) {
+		    // output data of each row
+		    echo "<table>";
+		    while($row = $result->fetch_assoc()) {
+		    	echo "<tr><td><h1>$row[naslov]</h1></td></tr>";
+		    	echo "<tr><td><p>$row[opis]</p></td></tr>";
+		    }
+		    echo "</table>";
+		} else {
+		    echo "0 results";
+		}
+
+
+		$conn->close(); 
+		?>
 
 </div>
 
